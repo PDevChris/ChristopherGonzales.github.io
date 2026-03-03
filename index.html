@@ -1,1 +1,750 @@
-Hello World
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Christopher Gonzales | Mechanical Engineering Portfolio</title>
+		<meta
+			name="description"
+			content="Portfolio of Christopher Gonzales, Mechanical Engineering student focused on design, manufacturing, thermal analysis, and systems integration."
+		/>
+		<style>
+			:root {
+				--bg: #0b1220;
+				--surface: #121d33;
+				--surface-2: #1a2742;
+				--surface-3: #22345a;
+				--text: #e6edf9;
+				--muted: #9fb0d1;
+				--brand: #35a0ff;
+				--brand-2: #5df2c5;
+				--brand-3: #8aa8ff;
+				--border: #29406c;
+				--max-width: 1080px;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				margin: 0;
+				font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+				color: var(--text);
+				background:
+					radial-gradient(circle at top right, #17325d 0%, transparent 38%),
+					radial-gradient(circle at 12% 20%, #173561 0%, transparent 25%),
+					var(--bg);
+				line-height: 1.6;
+				position: relative;
+				overflow-x: hidden;
+			}
+
+			body::before,
+			body::after {
+				content: "";
+				position: fixed;
+				inset: 0;
+				pointer-events: none;
+				z-index: -1;
+			}
+
+			body::before {
+				background-image:
+					linear-gradient(rgba(138, 168, 255, 0.08) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(138, 168, 255, 0.08) 1px, transparent 1px);
+				background-size: 44px 44px;
+				opacity: 0.35;
+				animation: gridDrift 24s linear infinite;
+			}
+
+			body::after {
+				background:
+					radial-gradient(circle at 85% 22%, rgba(93, 242, 197, 0.12), transparent 42%),
+					radial-gradient(circle at 15% 78%, rgba(53, 160, 255, 0.12), transparent 45%);
+				animation: glowShift 9s ease-in-out infinite alternate;
+			}
+
+			.container {
+				width: min(var(--max-width), 92%);
+				margin: 0 auto;
+			}
+
+			header {
+				background: rgba(11, 18, 32, 0.86);
+				backdrop-filter: blur(10px);
+				border-bottom: 1px solid var(--border);
+				position: sticky;
+				top: 0;
+				z-index: 50;
+			}
+
+			nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0.9rem 0;
+			}
+
+			.brand {
+				font-weight: 700;
+				letter-spacing: 0.4px;
+			}
+
+			.nav-links {
+				display: flex;
+				gap: 1rem;
+			}
+
+			.nav-links a {
+				text-decoration: none;
+				color: var(--muted);
+				font-weight: 600;
+				padding: 0.3rem 0.45rem;
+				border-radius: 6px;
+				transition: background-color 0.25s ease, color 0.25s ease;
+			}
+
+			.nav-links a:hover {
+				background: var(--surface);
+				color: var(--text);
+			}
+
+			.hero {
+				padding: 4.5rem 0 2.3rem;
+				display: grid;
+				grid-template-columns: 1.4fr 1fr;
+				gap: 1.25rem;
+				align-items: stretch;
+			}
+
+			.hero h1 {
+				margin: 0 0 0.7rem;
+				font-size: clamp(2rem, 5vw, 3.2rem);
+				line-height: 1.15;
+			}
+
+			.hero p {
+				margin: 0;
+				color: var(--muted);
+				max-width: 60ch;
+			}
+
+			.hero-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 1.2rem;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.hero-card::after {
+				content: "";
+				position: absolute;
+				inset: auto -60px -60px auto;
+				width: 200px;
+				height: 200px;
+				background: radial-gradient(circle, rgba(93, 242, 197, 0.2), transparent 68%);
+				pointer-events: none;
+			}
+
+			.hero-kpis {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 0.75rem;
+				margin-top: 1rem;
+			}
+
+			.profile-photo {
+				width: 110px;
+				height: 110px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 2px solid var(--border);
+				display: block;
+				margin-bottom: 0.8rem;
+				transition: transform 0.35s ease;
+			}
+
+			.kpi {
+				background: var(--surface-2);
+				border: 1px solid var(--border);
+				padding: 0.75rem;
+				border-radius: 10px;
+			}
+
+			.kpi strong {
+				display: block;
+				font-size: 1.15rem;
+				color: #fff;
+			}
+
+			.actions {
+				margin-top: 1.2rem;
+				display: flex;
+				gap: 0.8rem;
+				flex-wrap: wrap;
+			}
+
+			.btn {
+				border: 1px solid var(--brand);
+				background: var(--brand);
+				color: #081224;
+				padding: 0.65rem 1rem;
+				border-radius: 10px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+			}
+
+			.btn.secondary {
+				background: transparent;
+				color: var(--brand);
+			}
+
+			.btn:hover {
+				filter: brightness(1.06);
+				transform: translateY(-2px);
+				box-shadow: 0 10px 24px rgba(53, 160, 255, 0.18);
+			}
+
+			section {
+				margin: 1rem 0;
+				padding: 1.25rem 1.2rem;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 14px;
+				animation: fadeUp 0.7s ease both;
+			}
+
+			section h2 {
+				margin: 0 0 0.9rem;
+				font-size: 1.35rem;
+			}
+
+			.section-label {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				font-size: 0.85rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: var(--brand-3);
+				margin-bottom: 0.35rem;
+			}
+
+			.section-label::before {
+				content: "";
+				display: inline-block;
+				width: 20px;
+				height: 2px;
+				background: linear-gradient(90deg, var(--brand), var(--brand-2));
+			}
+
+			section h3 {
+				margin: 0 0 0.35rem;
+				font-size: 1.03rem;
+			}
+
+			.meta {
+				color: var(--muted);
+				font-size: 0.92rem;
+				margin: 0 0 0.7rem;
+			}
+
+			.grid {
+				display: grid;
+				gap: 1rem;
+			}
+
+			.two-col {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.skills-grid {
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			}
+
+			.project-list,
+			.photo-grid {
+				grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+			}
+
+			.card {
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				padding: 1rem;
+				background: var(--surface-2);
+				box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+				transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+			}
+
+			.card:hover {
+				transform: translateY(-4px);
+				border-color: #3c629e;
+				box-shadow: 0 10px 22px rgba(8, 18, 36, 0.35);
+			}
+
+			.card h3 {
+				margin-top: 0;
+			}
+
+			.pill {
+				display: inline-flex;
+				align-items: center;
+				font-size: 0.84rem;
+				padding: 0.2rem 0.55rem;
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				color: var(--brand-2);
+				margin-bottom: 0.5rem;
+			}
+
+			ul {
+				margin: 0;
+				padding-left: 1rem;
+			}
+
+			li + li {
+				margin-top: 0.3rem;
+			}
+
+			a {
+				color: var(--brand-2);
+			}
+
+			.link-row {
+				display: flex;
+				gap: 0.6rem;
+				flex-wrap: wrap;
+				margin-top: 0.8rem;
+			}
+
+			.text-link {
+				display: inline-flex;
+				align-items: center;
+				padding: 0.34rem 0.6rem;
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				text-decoration: none;
+				font-size: 0.88rem;
+				background: var(--surface-3);
+				transition: transform 0.2s ease, border-color 0.2s ease;
+			}
+
+			.text-link:hover {
+				transform: translateY(-2px);
+				border-color: var(--brand);
+			}
+
+			.project-group {
+				margin-top: 1rem;
+			}
+
+			.project-group h3 {
+				margin: 0 0 0.7rem;
+				font-size: 1.05rem;
+				color: var(--brand-2);
+			}
+
+			.photo-card {
+				overflow: hidden;
+			}
+
+			.photo-card img {
+				width: 100%;
+				height: 180px;
+				object-fit: cover;
+				border-radius: 8px;
+				border: 1px solid var(--border);
+				transition: transform 0.35s ease, filter 0.35s ease;
+			}
+
+			.photo-card:hover img {
+				transform: scale(1.03);
+				filter: saturate(1.08);
+			}
+
+			@keyframes fadeUp {
+				from {
+					opacity: 0;
+					transform: translateY(12px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes gridDrift {
+				from {
+					transform: translate3d(0, 0, 0);
+				}
+				to {
+					transform: translate3d(44px, 44px, 0);
+				}
+			}
+
+			@keyframes glowShift {
+				from {
+					opacity: 0.45;
+				}
+				to {
+					opacity: 0.8;
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				* {
+					animation: none !important;
+					transition: none !important;
+				}
+			}
+
+			footer {
+				text-align: center;
+				color: var(--muted);
+				padding: 2rem 0 3rem;
+			}
+
+			@media (max-width: 900px) {
+				.hero,
+				.two-col {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (max-width: 640px) {
+				.nav-links {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<nav>
+					<div class="brand">Christopher Gonzales</div>
+					<div class="nav-links">
+						<a href="#about">About</a>
+						<a href="#skills">Skills</a>
+						<a href="#experience">Experience</a>
+						<a href="#projects">Projects</a>
+						<a href="#education">Education</a>
+						<a href="#contact">Contact</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<main class="container">
+			<div class="hero">
+				<section>
+					<div class="pill">Mechanical Engineering • FIU • Class of 2028</div>
+					<h1>Designing reliable systems from CAD to controls.</h1>
+					<p>
+						Mechanical Engineering student at Florida International University with hands-on
+						experience in thermal management, multidisciplinary systems integration, and technical
+						project delivery. Focused on design and manufacturing with a strong software mindset.
+					</p>
+					<p>
+						Currently applying for internships in automotive, aerospace, and industrial engineering
+						roles where testing, reliability, and design execution are mission critical.
+					</p>
+					<div class="actions">
+						<a class="btn" href="#projects">View Projects</a>
+						<a class="btn secondary" href="ChristopherG.pdf" download>Download Resume</a>
+						<a class="btn secondary" href="#contact">Hire Me</a>
+					</div>
+				</section>
+
+				<section class="hero-card">
+					<img
+						class="profile-photo"
+						src="me.png"
+						alt="Christopher Gonzales profile photo"
+						onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.jpg';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='images/me.png';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.jpg';return;}this.style.display='none'"
+					/>
+					<h2 style="margin-top: 0">Engineering Snapshot</h2>
+					<div class="hero-kpis">
+						<div class="kpi"><strong>3.38</strong>GPA</div>
+						<div class="kpi"><strong>100+</strong>Engineers Collaborated</div>
+						<div class="kpi"><strong>50+</strong>Page NASA PDR</div>
+						<div class="kpi"><strong>15+</strong>UAV Components Modeled</div>
+					</div>
+				</section>
+			</div>
+
+			<section id="about">
+				<div class="section-label">Profile</div>
+				<h2>About Me</h2>
+				<p>
+					I enjoy solving practical engineering problems where mechanical design, controls, and
+					data come together. My experience includes thermal analysis research, autonomous vehicle
+					development, drone component design, and technical documentation for NASA-aligned
+					projects. I am currently seeking internships in automotive systems, manufacturing,
+					reliability engineering, aerospace development, and product design.
+				</p>
+			</section>
+
+			<section id="skills">
+				<div class="section-label">Technical Stack</div>
+				<h2>Skills</h2>
+				<div class="grid skills-grid">
+					<div class="card">
+						<h3>Engineering</h3>
+						<ul>
+							<li>SolidWorks (CSWA/P), Siemens NX, AutoCAD</li>
+							<li>MATLAB, Thermal Analysis, IR Thermography</li>
+							<li>Mechanical and electrical system integration</li>
+						</ul>
+					</div>
+					<div class="card">
+						<h3>Programming &amp; Controls</h3>
+						<ul>
+							<li>Python, Java, PHP, JavaScript</li>
+							<li>GitHub version control workflows</li>
+							<li>Embedded systems and control logic familiarity</li>
+						</ul>
+					</div>
+					<div class="card">
+						<h3>Productivity &amp; Communication</h3>
+						<ul>
+							<li>Advanced Microsoft Excel, PowerPoint, Word</li>
+							<li>Bilingual fluency in English and Spanish</li>
+							<li>Technical documentation and rapid system onboarding</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section id="experience">
+				<div class="section-label">Professional Experience</div>
+				<h2>Experience</h2>
+				<div class="grid two-col">
+					<article class="card">
+						<h3>IEEE Electronics Packaging Society Fellowship</h3>
+						<p class="meta">Mechanical Engineering Research • Miami, FL • Sep 2025 – Jan 2026</p>
+						<ul>
+							<li>
+								Optimized thermal management of electronic components using high-resolution
+								infrared profiling to identify hotspot formation.
+							</li>
+							<li>
+								Validated heat dissipation models through controlled lab experiments and
+								documented findings for a team of 5 engineers.
+							</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>NASA L’Space Mission Concept Academy</h3>
+						<p class="meta">Systems Engineering Lead • Miami, FL • Aug 2025 – Dec 2025</p>
+						<ul>
+							<li>
+								Authored a 50+ page Preliminary Design Review (PDR), enabling project approval
+								and defining the mission technical roadmap.
+							</li>
+							<li>
+								Coordinated mechanical, electrical, and software interface integration,
+								reducing subsystem conflicts across the team.
+							</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>Skyline Space Internship</h3>
+						<p class="meta">Mechanical Engineering Intern (UAV &amp; Drones) • Coimbatore, India • Aug 2025 – Oct 2025</p>
+						<ul>
+							<li>
+								Modeled 15+ custom UAV chassis components in SolidWorks for precise fitment of
+								rotors, sensors, and flight controllers.
+							</li>
+							<li>
+								Collaborated with an international team of 100+ engineers to synchronize design
+								updates and troubleshoot integration issues.
+							</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>Presidente Supermarket</h3>
+						<p class="meta">Inventory &amp; Merchandise Lead • Miami, FL • Jun 2021 – Present</p>
+						<ul>
+							<li>
+								Managed logistics for 200+ product lines to maintain full stock availability and
+								efficient shelf organization.
+							</li>
+							<li>
+								Reduced transaction errors by 10% by auditing pricing and improving merchandise
+								sorting workflows.
+							</li>
+						</ul>
+					</article>
+				</div>
+			</section>
+
+			<section id="projects">
+				<div class="section-label">Portfolio Work</div>
+				<h2>Projects</h2>
+				<div class="project-group">
+					<h3>SolidWorks &amp; Mechanical Design Projects</h3>
+					<div class="grid project-list">
+						<article class="card">
+							<h3>ASME 2026 XRC Autonomous Ford Mustang GTD</h3>
+							<p class="meta">Lead Developer &amp; Designer • Feb 2026 – Present</p>
+							<p>
+								Designed a scale Ford Mustang GTD in SolidWorks and programmed drivetrain and
+								steering control logic for high-speed stability and precision handling.
+							</p>
+						</article>
+						<article class="card">
+							<h3>STRATA Mars Rover Mission Concept</h3>
+							<p class="meta">NASA Professional Workforce Preparation • Aug 2025 – Dec 2025</p>
+							<p>
+								Performed mission feasibility analysis and CAD architecture design while optimizing
+								component placement for subsystem performance and integration.
+							</p>
+						</article>
+					</div>
+				</div>
+				<div class="project-group">
+					<h3>Programming &amp; Software Projects</h3>
+					<div class="grid project-list">
+						<article class="card">
+							<h3>WC Server (Mojang Studios Freelance Project)</h3>
+							<p class="meta">Founder &amp; Lead Developer • Sep 2025 – Present</p>
+							<p>
+								Built a high-traffic server supporting 100+ concurrent players using PHP custom
+								plugins and latency optimization to maintain 99.9% uptime.
+							</p>
+							<div class="link-row">
+								<a class="text-link" href="https://github.com/PDevChris" target="_blank" rel="noopener">GitHub Profile</a>
+								<a class="text-link" href="https://poggit.pmmp.io/" target="_blank" rel="noopener">Poggit</a>
+							</div>
+						</article>
+						<article class="card">
+							<h3>Control Logic and Embedded Systems Exploration</h3>
+							<p class="meta">Applied Programming for Engineering Systems</p>
+							<p>
+								Developed and tested logic flows for automation-style control behavior, integrating
+								software decision making with mechanical system requirements.
+							</p>
+							<div class="link-row">
+								<a class="text-link" href="https://github.com/PDevChris?tab=repositories" target="_blank" rel="noopener">View Repositories</a>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="section-label">Team Leadership</div>
+				<h2>Leadership &amp; Activities</h2>
+				<div class="grid two-col">
+					<article class="card">
+						<h3>Engineering Research Society Engineer – Technical Coordinator</h3>
+						<p class="meta">Florida International University • Aug 2025 – Present</p>
+						<ul>
+							<li>
+								Coordinated technical workshops for 100+ students and supported certification
+								program logistics and funding.
+							</li>
+							<li>
+								Partnered with executive leadership to secure resources for recurring engineering
+								development seminars.
+							</li>
+						</ul>
+					</article>
+					<article class="card">
+						<h3>Panther Motorsports (Formula SAE) – Mechanical Design Engineer</h3>
+						<p class="meta">Florida International University • Sep 2025 – Present</p>
+						<ul>
+							<li>
+								Analyzed vehicle test data and proposed mechanical improvements for handling and
+								efficiency within a 50+ member team.
+							</li>
+							<li>
+								Developed high-fidelity SolidWorks sub-assembly models while maintaining strict
+								clearance tolerances and chassis integration requirements.
+							</li>
+						</ul>
+					</article>
+				</div>
+			</section>
+
+			<section id="education">
+				<div class="section-label">Academic Foundation</div>
+				<h2>Education</h2>
+				<article class="card">
+					<h3>Florida International University, Miami, FL</h3>
+					<p class="meta">
+						Bachelor of Science in Mechanical Engineering • GPA: 3.38 • Expected Graduation: May 2028
+					</p>
+					<p>
+						Concentrations: Design and Manufacturing<br />
+						Related Coursework: SolidWorks 3D Modeling, Discrete Mathematics, Programming for
+						Systems, Data Analysis, Circuits<br />
+						Honors: High Honors, King Solomon Award Winner, Dean’s List, 2025 HSF Scholar
+					</p>
+				</article>
+			</section>
+
+			<section id="gallery">
+				<div class="section-label">Visual Highlights</div>
+				<h2>Engineering Gallery</h2>
+				<p class="meta">
+					Default placeholders are included. Replace them with your own photos in the
+					<strong>images</strong> folder when ready.
+				</p>
+				<div class="grid photo-grid">
+					<article class="card photo-card">
+						<img src="Mustang.jpg" alt="ASME Mustang project image" />
+						<p>ASME XRC autonomous Mustang design and development.</p>
+					</article>
+					<article class="card photo-card">
+						<img src="blueprintnasa.jpg" alt="NASA rover blueprint concept image" />
+						<p>NASA mission concept blueprint and systems planning.</p>
+					</article>
+					<article class="card photo-card">
+						<img src="HeatSink.jpg" alt="Thermal management project image" />
+						<p>Thermal analysis and heat dissipation research work.</p>
+					</article>
+					<article class="card photo-card">
+						<img src="code.png" alt="Programming project code image" />
+						<p>Programming and systems logic implementation snapshots.</p>
+					</article>
+					<article class="card photo-card">
+						<img src="results.png" alt="Project test results image" />
+						<p>Project testing output and engineering validation results.</p>
+					</article>
+					<article class="card photo-card">
+						<img src="PantherCar.jpg" alt="Panther Motorsports vehicle image" />
+						<p>Formula SAE collaboration and mechanical design activity.</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="contact">
+				<div class="section-label">Let's Connect</div>
+				<h2>Contact</h2>
+				<p>Email: cgonx766@fiu.edu</p>
+				<p>LinkedIn: <a href="https://www.linkedin.com/in/christopher-g17/" target="_blank" rel="noopener">linkedin.com/in/christopher-g17</a></p>
+				<p>GitHub: <a href="https://github.com/PDevChris" target="_blank" rel="noopener">github.com/PDevChris</a></p>
+				<p>Poggit: <a href="https://poggit.pmmp.io/" target="_blank" rel="noopener">poggit.pmmp.io</a></p>
+				<p>Languages: English and Spanish</p>
+			</section>
+		</main>
+
+		<footer>
+			<div class="container">© 2026 Christopher Gonzales • Mechanical Engineering Portfolio</div>
+		</footer>
+	</body>
+</html>

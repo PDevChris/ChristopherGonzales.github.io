@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Manufacturing and CAD workflow placeholder">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1b1f30"/>
+      <stop offset="100%" stop-color="#264e63"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg2)"/>
+  <g stroke="#67ffd8" stroke-width="4" fill="none" opacity="0.75">
+    <rect x="140" y="140" width="420" height="420" rx="16"/>
+    <rect x="640" y="140" width="420" height="420" rx="16"/>
+    <path d="M220 380L320 260L440 360L520 280"/>
+    <path d="M720 380L820 240L920 300L1010 250"/>
+    <circle cx="320" cy="260" r="9" fill="#67ffd8"/>
+    <circle cx="440" cy="360" r="9" fill="#67ffd8"/>
+    <circle cx="820" cy="240" r="9" fill="#67ffd8"/>
+    <circle cx="920" cy="300" r="9" fill="#67ffd8"/>
+  </g>
+  <text x="80" y="96" fill="#e1fff7" font-size="54" font-family="Arial, Helvetica, sans-serif" font-weight="700">Design + Manufacturing Workflow</text>
+  <text x="80" y="640" fill="#adf7e8" font-size="30" font-family="Arial, Helvetica, sans-serif">Replace with your own build photos from GitHub uploads</text>
+</svg>
