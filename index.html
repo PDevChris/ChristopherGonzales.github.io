@@ -148,11 +148,12 @@
 			}
 
 			.github-pfp {
-				width: 34px;
-				height: 34px;
+				width: 42px;
+				height: 42px;
 				border-radius: 50%;
 				object-fit: cover;
-				border: 1px solid var(--border);
+				border: 2px solid var(--brand);
+				box-shadow: 0 6px 16px rgba(8, 18, 36, 0.4);
 			}
 
 			.hero-top h1 {
@@ -543,9 +544,9 @@
 			<section class="hero-top">
 				<img
 					class="profile-photo-lg"
-					src="me.png"
+					src="pfpgithub.png"
 					alt="Christopher Gonzales profile photo"
-					onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.jpg';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='images/me.png';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.jpg';return;}this.style.display='none'"
+					onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.png';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='me.jpg';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.png';return;}if(this.dataset.fallback!=='4'){this.dataset.fallback='4';this.src='images/me.jpg';return;}this.style.display='none'"
 				/>
 				<div>
 					<div class="pill">Mechanical Engineering • FIU • Class of 2028</div>
@@ -554,7 +555,9 @@
 					<div class="link-row" style="margin-top: 0.9rem">
 						<a class="text-link" href="ChristopherG.pdf" download>Resume</a>
 						<a class="text-link" href="https://www.linkedin.com/in/christopher-g17/" target="_blank" rel="noopener">LinkedIn</a>
-						<img class="github-pfp" src="pfpgithub.png" alt="GitHub profile photo" onerror="this.style.display='none'" />
+						<a href="https://github.com/PDevChris" target="_blank" rel="noopener" aria-label="GitHub profile photo link">
+							<img class="github-pfp" src="pfpgithub.png" alt="GitHub profile photo" onerror="this.style.display='none'" />
+						</a>
 						<a class="text-link" href="https://github.com/PDevChris" target="_blank" rel="noopener">GitHub</a>
 						<a class="text-link" href="https://poggit.pmmp.io/" target="_blank" rel="noopener">Poggit</a>
 						<a class="text-link" href="mailto:cgonz766@fiu.edu">Email</a>
@@ -584,9 +587,9 @@
 				<section class="hero-card">
 					<img
 						class="profile-photo"
-						src="me.png"
+						src="pfpgithub.png"
 						alt="Christopher Gonzales profile photo"
-						onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.jpg';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='images/me.png';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.jpg';return;}this.style.display='none'"
+						onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.png';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='me.jpg';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.png';return;}if(this.dataset.fallback!=='4'){this.dataset.fallback='4';this.src='images/me.jpg';return;}this.style.display='none'"
 					/>
 					<h2 class="snapshot-name">Christopher Gonzales</h2>
 					<div class="hero-kpis">
@@ -759,12 +762,12 @@
 						</div>
 					</article>
 					<article class="card">
-						<img class="project-media" src="mustanfocde.png" alt="Mustang build code project image" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='mustangcode.png';return;}this.src='code.png'" />
+						<img class="project-media" src="mustangcode.png" alt="Mustang build code project image" />
 						<h3>Mustang Build Code</h3>
 						<p class="meta">Vehicle Control and Software Integration</p>
 						<p>
-							Developed and tested control code for Mustang build behavior, integrating software
-							decision logic with drivetrain and steering requirements.
+							Developed and tested logic flows for automation-style control behavior, integrating
+							software decision making with mechanical system requirements.
 						</p>
 						<div class="link-row">
 							<a class="text-link" href="https://github.com/PDevChris" target="_blank" rel="noopener">GitHub</a>
@@ -792,6 +795,7 @@
 						</ul>
 					</article>
 					<article class="card">
+						<img class="project-media" src="PantherCar.jpg" alt="Panther Motorsports car image" />
 						<h3>Panther Motorsports (Formula SAE) – Mechanical Design Engineer</h3>
 						<p class="meta">Florida International University • Sep 2025 – Present</p>
 						<ul>
@@ -828,7 +832,7 @@
 			<section id="contact">
 				<div class="section-label">Let's Connect</div>
 				<h2>Contact</h2>
-				<p>Email: <a href="mailto:cgonz766@fiu.edu">cgonz766@fiu.edu</a></p>
+				<p>Email: <a class="text-link" href="mailto:cgonz766@fiu.edu">cgonz766@fiu.edu</a></p>
 				<p>LinkedIn: <a href="https://www.linkedin.com/in/christopher-g17/" target="_blank" rel="noopener">linkedin.com/in/christopher-g17</a></p>
 				<p>GitHub: <a href="https://github.com/PDevChris" target="_blank" rel="noopener">github.com/PDevChris</a></p>
 				<p>Poggit: <a href="https://poggit.pmmp.io/" target="_blank" rel="noopener">poggit.pmmp.io</a></p>
