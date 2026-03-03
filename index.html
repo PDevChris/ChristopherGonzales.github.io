@@ -147,15 +147,6 @@
 				box-shadow: 0 10px 24px rgba(8, 18, 36, 0.4);
 			}
 
-			.github-pfp {
-				width: 42px;
-				height: 42px;
-				border-radius: 50%;
-				object-fit: cover;
-				border: 2px solid var(--brand);
-				box-shadow: 0 6px 16px rgba(8, 18, 36, 0.4);
-			}
-
 			.hero-top h1 {
 				margin: 0 0 0.35rem;
 				font-size: clamp(1.7rem, 4.5vw, 2.8rem);
@@ -544,9 +535,9 @@
 			<section class="hero-top">
 				<img
 					class="profile-photo-lg"
-					src="pfpgithub.png"
+					src="me.png"
 					alt="Christopher Gonzales profile photo"
-					onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.png';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='me.jpg';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.png';return;}if(this.dataset.fallback!=='4'){this.dataset.fallback='4';this.src='images/me.jpg';return;}this.style.display='none'"
+					onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.jpg';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='images/me.png';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.jpg';return;}this.style.display='none'"
 				/>
 				<div>
 					<div class="pill">Mechanical Engineering • FIU • Class of 2028</div>
@@ -555,9 +546,6 @@
 					<div class="link-row" style="margin-top: 0.9rem">
 						<a class="text-link" href="ChristopherG.pdf" download>Resume</a>
 						<a class="text-link" href="https://www.linkedin.com/in/christopher-g17/" target="_blank" rel="noopener">LinkedIn</a>
-						<a href="https://github.com/PDevChris" target="_blank" rel="noopener" aria-label="GitHub profile photo link">
-							<img class="github-pfp" src="pfpgithub.png" alt="GitHub profile photo" onerror="this.style.display='none'" />
-						</a>
 						<a class="text-link" href="https://github.com/PDevChris" target="_blank" rel="noopener">GitHub</a>
 						<a class="text-link" href="https://poggit.pmmp.io/" target="_blank" rel="noopener">Poggit</a>
 						<a class="text-link" href="mailto:cgonz766@fiu.edu">Email</a>
@@ -587,9 +575,9 @@
 				<section class="hero-card">
 					<img
 						class="profile-photo"
-						src="pfpgithub.png"
+						src="me.png"
 						alt="Christopher Gonzales profile photo"
-						onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.png';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='me.jpg';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.png';return;}if(this.dataset.fallback!=='4'){this.dataset.fallback='4';this.src='images/me.jpg';return;}this.style.display='none'"
+						onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='me.jpg';return;}if(this.dataset.fallback!=='2'){this.dataset.fallback='2';this.src='images/me.png';return;}if(this.dataset.fallback!=='3'){this.dataset.fallback='3';this.src='images/me.jpg';return;}this.style.display='none'"
 					/>
 					<h2 class="snapshot-name">Christopher Gonzales</h2>
 					<div class="hero-kpis">
@@ -739,6 +727,15 @@
 						<p>
 							Used high-resolution thermal profiles and lab verification to improve heat
 							dissipation strategy and reduce hotspot risk.
+						</p>
+					</article>
+					<article class="card">
+						<img class="project-media" src="drone.png" alt="UAV drone component project image" />
+						<h3>UAV Drone Part Design</h3>
+						<p class="meta">SolidWorks Component Development</p>
+						<p>
+							Designed and refined a drone structural part in SolidWorks, focusing on fitment,
+							weight balance, and reliable integration with the airframe assembly.
 						</p>
 					</article>
 				</div>
