@@ -12,4 +12,4 @@ This website highlights my projects, skills, and resume for recruiters and hirin
 
 Visit: https://christophergonzales.github.io
 
-Resume file in this repository: Resume ChristopherG.pdf
+Resume file in this repository: Resume.pdf
