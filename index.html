@@ -842,7 +842,22 @@
 						</p>
 					</article>
 					<article class="card">
-						<img class="project-media" src="HeatSink.jpg" alt="Thermal management project image" />
+						<div class="slider-container">
+							<div class="slider-wrapper" id="ieeeSlider">
+								<div class="slider-slide">
+									<img src="HeatSink.jpg" alt="Thermal management heat sink" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='HeatSink.jpeg';return;}" />
+								</div>
+								<div class="slider-slide">
+									<img src="iEEEReport.png" alt="IEEE Electronics Packaging Society report" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='iEEEReport.jpg';return;}" />
+								</div>
+							</div>
+							<button class="slider-btn slider-prev" onclick="ieeeSlide(-1)">❮</button>
+							<button class="slider-btn slider-next" onclick="ieeeSlide(1)">❯</button>
+							<div class="slider-controls">
+								<span class="slider-dot active" onclick="ieeeGoTo(0)"></span>
+								<span class="slider-dot" onclick="ieeeGoTo(1)"></span>
+							</div>
+						</div>
 						<h3>Thermal Research Validation</h3>
 						<p class="meta">IEEE Electronics Packaging Society Fellowship</p>
 						<p>
@@ -906,16 +921,12 @@ Your browser does not support video playback.
 <div class="slider-slide">
 <img src="mustangcode.png" alt="Mustang build code implementation" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='Mustang.jpg';return;}" />
 </div>
-<div class="slider-slide">
-<img src="results.png" alt="Control system test results" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='results.jpg';return;}" />
-</div>
 </div>
 <button class="slider-btn slider-prev" onclick="mustangSlide(-1)">❮</button>
 <button class="slider-btn slider-next" onclick="mustangSlide(1)">❯</button>
 <div class="slider-controls">
 <span class="slider-dot active" onclick="mustangGoTo(0)"></span>
 <span class="slider-dot" onclick="mustangGoTo(1)"></span>
-<span class="slider-dot" onclick="mustangGoTo(2)"></span>
 </div>
 </div>
 						<h3>Mustang Build Code</h3>
@@ -1214,6 +1225,24 @@ dots.forEach((dot, idx) => {
 dot.classList.toggle('active', idx === index);
 });
 }
+
+		// IEEE Slider
+		let ieeeCurrentSlide = 0;
+		function ieeeSlide(n) {
+			const slider = document.getElementById('ieeeSlider');
+			const slides = slider.querySelectorAll('.slider-slide');
+			const dots = slider.parentElement.querySelectorAll('.slider-dot');
+			ieeeCurrentSlide = (ieeeCurrentSlide + n + slides.length) % slides.length;
+			slider.style.transform = `translateX(-${ieeeCurrentSlide * 100}%)`;
+			dots.forEach((dot, idx) => dot.classList.toggle('active', idx === ieeeCurrentSlide));
+		}
+		function ieeeGoTo(index) {
+			const slider = document.getElementById('ieeeSlider');
+			const dots = slider.parentElement.querySelectorAll('.slider-dot');
+			ieeeCurrentSlide = index;
+			slider.style.transform = `translateX(-${index * 100}%)`;
+			dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+		}
 
 		</script>
 	</body>
