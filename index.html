@@ -641,7 +641,7 @@
 						<a href="#about">About</a>
 						<a href="#skills">Skills</a>
 						<a href="#experience">Experience</a>
-						<a href="#projects">Mechanical Projects</a>
+						<a href="#projects">CAD Projects</a>
 						<a href="#code-projects">Code Projects</a>
 						<a href="#experimental">Experimental Builds</a>
 						<a href="#future">Future Work</a>
@@ -741,6 +741,7 @@
 				<h2>Experience</h2>
 				<div class="grid two-col">
 					<article class="card">
+						<img class="project-media" src="iEEEReport.png" alt="IEEE research report" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='HeatSink.jpg';return;}" />
 						<h3>IEEE Electronics Packaging Society Fellowship</h3>
 						<p class="meta">Mechanical Engineering Research • Miami, FL • Sep 2025 – Jan 2026</p>
 						<ul>
@@ -756,6 +757,7 @@
 					</article>
 
 					<article class="card">
+						<img class="project-media" src="Locations.png" alt="NASA mission locations and planning" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='nasa.jpg';return;}" />
 						<h3>NASA L’Space Mission Concept Academy</h3>
 						<p class="meta">Systems Engineering Lead • Miami, FL • Aug 2025 – Dec 2025</p>
 						<ul>
@@ -771,6 +773,7 @@
 					</article>
 
 					<article class="card">
+						<img class="project-media" src="Skyline.jpg" alt="Skyline Space internship work" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='drone.png';return;}" />
 						<h3>Skyline Space Internship</h3>
 						<p class="meta">Mechanical Engineering Intern (UAV &amp; Drones) • Coimbatore, India • Aug 2025 – Oct 2025</p>
 						<ul>
@@ -786,6 +789,7 @@
 					</article>
 
 					<article class="card">
+						<img class="project-media" src="Work.png" alt="Presidente Supermarket work experience" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='Team.png';return;}" />
 						<h3>Presidente Supermarket</h3>
 						<p class="meta">Inventory &amp; Merchandise Lead • Miami, FL • Jun 2021 – Present</p>
 						<ul>
@@ -804,7 +808,7 @@
 
 			<section id="projects">
 				<div class="section-label">Portfolio Work</div>
-				<h2>Mechanical Design Projects</h2>
+				<h2>CAD Projects</h2>
 				<div class="grid project-list">
 					<article class="card">
 						<img class="project-media" src="Mustang.jpg" alt="ASME Mustang project image" />
@@ -825,22 +829,7 @@
 						</p>
 					</article>
 					<article class="card">
-						<div class="slider-container">
-							<div class="slider-wrapper" id="ieeeSlider">
-								<div class="slider-slide">
-									<img src="HeatSink.jpg" alt="Thermal management heat sink" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='HeatSink.jpeg';return;}" />
-								</div>
-								<div class="slider-slide">
-									<img src="iEEEReport.png" alt="IEEE Electronics Packaging Society report" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='iEEEReport.jpg';return;}" />
-								</div>
-							</div>
-							<button class="slider-btn slider-prev" onclick="ieeeSlide(-1)">❮</button>
-							<button class="slider-btn slider-next" onclick="ieeeSlide(1)">❯</button>
-							<div class="slider-controls">
-								<span class="slider-dot active" onclick="ieeeGoTo(0)"></span>
-								<span class="slider-dot" onclick="ieeeGoTo(1)"></span>
-							</div>
-						</div>
+						<img class="project-media" src="HeatSink.jpg" alt="Thermal management heat sink" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='HeatSink.jpeg';return;}" />
 						<h3>Thermal Research Validation</h3>
 						<p class="meta">IEEE Electronics Packaging Society Fellowship</p>
 						<p>
@@ -1156,24 +1145,6 @@ dots.forEach((dot, idx) => {
 dot.classList.toggle('active', idx === index);
 });
 }
-
-		// IEEE Slider
-		let ieeeCurrentSlide = 0;
-		function ieeeSlide(n) {
-			const slider = document.getElementById('ieeeSlider');
-			const slides = slider.querySelectorAll('.slider-slide');
-			const dots = slider.parentElement.querySelectorAll('.slider-dot');
-			ieeeCurrentSlide = (ieeeCurrentSlide + n + slides.length) % slides.length;
-			slider.style.transform = `translateX(-${ieeeCurrentSlide * 100}%)`;
-			dots.forEach((dot, idx) => dot.classList.toggle('active', idx === ieeeCurrentSlide));
-		}
-		function ieeeGoTo(index) {
-			const slider = document.getElementById('ieeeSlider');
-			const dots = slider.parentElement.querySelectorAll('.slider-dot');
-			ieeeCurrentSlide = index;
-			slider.style.transform = `translateX(-${index * 100}%)`;
-			dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
-		}
 
 		</script>
 	</body>
