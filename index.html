@@ -1066,6 +1066,22 @@ Your browser does not support video playback.
 				</article>
 
 				<article class="card">
+					<div class="slider-container">
+						<div class="slider-wrapper" id="windTunnelSlider">
+							<div class="slider-slide">
+								<img src="WindTunnel.png" alt="Wind tunnel build" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='WindTunnel.jpg';return;}" />
+							</div>
+							<div class="slider-slide">
+								<img src="code.png" alt="Wind tunnel CAD design" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='code.jpg';return;}" />
+							</div>
+						</div>
+						<button class="slider-btn slider-prev" onclick="windTunnelSlide(-1)">❮</button>
+						<button class="slider-btn slider-next" onclick="windTunnelSlide(1)">❯</button>
+						<div class="slider-controls">
+							<span class="slider-dot active" onclick="windTunnelGoTo(0)"></span>
+							<span class="slider-dot" onclick="windTunnelGoTo(1)"></span>
+						</div>
+					</div>
 					<h3 style="color: var(--brand-2); margin-top: 0;">Wind Tunnel Build</h3>
 					<p class="meta">Personal Project • Aerodynamics &amp; System Design</p>
 
