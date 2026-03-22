@@ -860,7 +860,22 @@
 				<h2>Code Projects</h2>
 				<div class="grid project-list">
 					<article class="card">
-						<img class="project-media" src="code.png" alt="Programming project code image" />
+						<div class="slider-container">
+							<div class="slider-wrapper" id="wcSlider">
+								<div class="slider-slide">
+									<img src="code.png" alt="WC Server code infrastructure" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='code.jpg';return;}" />
+								</div>
+								<div class="slider-slide">
+									<img src="iPhone14.png" alt="WC Server internal airport interface" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='iPhone14.jpg';return;}" />
+								</div>
+							</div>
+							<button class="slider-btn slider-prev" onclick="wcSlide(-1)">❮</button>
+							<button class="slider-btn slider-next" onclick="wcSlide(1)">❯</button>
+							<div class="slider-controls">
+								<span class="slider-dot active" onclick="wcGoTo(0)"></span>
+								<span class="slider-dot" onclick="wcGoTo(1)"></span>
+							</div>
+						</div>
 						<h3>WC Server</h3>
 						<p class="meta">Founder &amp; Lead Developer • Sep 2025 – Present</p>
 						<p>
@@ -906,6 +921,42 @@ Your browser does not support video playback.
 						<div class="link-row">
 							<a class="text-link" href="https://github.com/PDevChris" target="_blank" rel="noopener">GitHub</a>
 						</div>
+					</article>
+				</div>
+			</section>
+
+			<section>
+				<div class="section-label">Team Leadership</div>
+				<h2>Team Contributions</h2>
+				<div class="grid two-col">
+					<article class="card">
+						<h3>Engineering Research Society – Technical Coordinator</h3>
+						<p class="meta">Florida International University • Aug 2025 – Present</p>
+						<ul>
+							<li>
+								Coordinated technical workshops for 100+ students and supported certification
+								program logistics and funding.
+							</li>
+							<li>
+								Partnered with executive leadership to secure resources for recurring engineering
+								development seminars.
+							</li>
+						</ul>
+					</article>
+					<article class="card">
+						<img class="project-media" src="PantherCar.jpg" alt="Panther Motorsports car image" />
+						<h3>Panther Motorsports (Formula SAE) – Mechanical Design Engineer</h3>
+						<p class="meta">Florida International University • Sep 2025 – Present</p>
+						<ul>
+							<li>
+								Analyzed vehicle test data and proposed mechanical improvements for handling and
+								efficiency within a 50+ member team.
+							</li>
+							<li>
+								Developed high-fidelity SolidWorks sub-assembly models while maintaining strict
+								clearance tolerances and chassis integration requirements.
+							</li>
+						</ul>
 					</article>
 				</div>
 			</section>
@@ -1094,6 +1145,69 @@ Your browser does not support video playback.
 					dot.classList.toggle('active', idx === index);
 				});
 			}
+
+// Sentry Slider Functions
+let sentryCurrentSlide = 0;
+
+function sentrySlide(n) {
+const slider = document.getElementById('sentrySlider');
+const slides = slider.querySelectorAll('.slider-slide');
+const dots = slider.parentElement.querySelectorAll('.slider-dot');
+
+sentryCurrentSlide += n;
+if (sentryCurrentSlide >= slides.length) sentryCurrentSlide = 0;
+if (sentryCurrentSlide < 0) sentryCurrentSlide = slides.length - 1;
+
+slider.style.transform = `translateX(-${sentryCurrentSlide * 100}%)`;
+
+dots.forEach((dot, idx) => {
+dot.classList.toggle('active', idx === sentryCurrentSlide);
+});
+}
+
+function sentryGoTo(index) {
+const slider = document.getElementById('sentrySlider');
+const dots = slider.parentElement.querySelectorAll('.slider-dot');
+
+sentryCurrentSlide = index;
+slider.style.transform = `translateX(-${index * 100}%)`;
+
+dots.forEach((dot, idx) => {
+dot.classList.toggle('active', idx === index);
+});
+}
+
+// Wind Tunnel Slider Functions
+let windTunnelCurrentSlide = 0;
+
+function windTunnelSlide(n) {
+const slider = document.getElementById('windTunnelSlider');
+const slides = slider.querySelectorAll('.slider-slide');
+const dots = slider.parentElement.querySelectorAll('.slider-dot');
+
+windTunnelCurrentSlide += n;
+if (windTunnelCurrentSlide >= slides.length) windTunnelCurrentSlide = 0;
+if (windTunnelCurrentSlide < 0) windTunnelCurrentSlide = slides.length - 1;
+
+slider.style.transform = `translateX(-${windTunnelCurrentSlide * 100}%)`;
+
+dots.forEach((dot, idx) => {
+dot.classList.toggle('active', idx === windTunnelCurrentSlide);
+});
+}
+
+function windTunnelGoTo(index) {
+const slider = document.getElementById('windTunnelSlider');
+const dots = slider.parentElement.querySelectorAll('.slider-dot');
+
+windTunnelCurrentSlide = index;
+slider.style.transform = `translateX(-${index * 100}%)`;
+
+dots.forEach((dot, idx) => {
+dot.classList.toggle('active', idx === index);
+});
+}
+
 		</script>
 	</body>
 </html>
