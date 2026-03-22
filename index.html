@@ -506,9 +506,112 @@
 				}
 			}
 
+			/* Carousel Styles */
+			.carousel-container {
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+				border-radius: 14px;
+				background: var(--surface-2);
+				border: 1px solid var(--border);
+			}
+
+			.carousel-inner {
+				display: flex;
+				transition: transform 0.5s ease;
+				width: 100%;
+			}
+
+			.carousel-slide {
+				min-width: 100%;
+				padding: 1.5rem;
+				text-align: center;
+				background: linear-gradient(145deg, rgba(18, 29, 51, 0.95), rgba(26, 39, 66, 0.95));
+			}
+
+			.carousel-slide img {
+				width: 100%;
+				max-width: 400px;
+				height: auto;
+				border-radius: 12px;
+				border: 1px solid var(--border);
+				margin-bottom: 1rem;
+			}
+
+			.carousel-slide h3 {
+				margin: 0.8rem 0 0.4rem;
+				font-size: 1.25rem;
+			}
+
+			.carousel-slide p {
+				margin: 0;
+				color: var(--muted);
+			}
+
+			.carousel-controls {
+				position: absolute;
+				bottom: 1rem;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				gap: 0.5rem;
+				z-index: 10;
+			}
+
+			.carousel-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.3);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				cursor: pointer;
+				transition: background 0.3s ease;
+			}
+
+			.carousel-dot.active {
+				background: var(--brand-2);
+			}
+
+			.carousel-btn {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: rgba(53, 160, 255, 0.2);
+				border: 1px solid var(--border);
+				color: var(--text);
+				padding: 0.6rem 0.8rem;
+				border-radius: 8px;
+				cursor: pointer;
+				font-size: 1.2rem;
+				transition: all 0.25s ease;
+				z-index: 10;
+			}
+
+			.carousel-btn:hover {
+				background: rgba(53, 160, 255, 0.4);
+				color: var(--brand-2);
+			}
+
+			.carousel-prev {
+				left: 1rem;
+			}
+
+			.carousel-next {
+				right: 1rem;
+			}
+
 			@media (max-width: 640px) {
 				.nav-links {
 					display: none;
+				}
+
+				.carousel-btn {
+					padding: 0.4rem 0.6rem;
+					font-size: 1rem;
+				}
+
+				.carousel-slide {
+					padding: 1rem;
 				}
 			}
 		</style>
@@ -523,7 +626,9 @@
 						<a href="#skills">Skills</a>
 						<a href="#experience">Experience</a>
 						<a href="#projects">Mechanical Projects</a>
+						<a href="#completed">Completed Work</a>
 						<a href="#code-projects">Code Projects</a>
+						<a href="#future">Future Work</a>
 						<a href="#education">Education</a>
 						<a href="#contact">Contact</a>
 					</div>
@@ -741,6 +846,48 @@
 				</div>
 			</section>
 
+			<section id="completed">
+				<div class="section-label">Professional Achievements</div>
+				<h2>Mechanical Completed Projects</h2>
+				<p>
+					Finished projects demonstrating technical expertise in thermal management, systems integration, and collaborative engineering leadership.
+				</p>
+				<div class="grid two-col" style="margin-top: 1.5rem;">
+					<article class="card">
+						<img class="project-media" src="iEEEReport.png" alt="IEEE Electronics Packaging research report" />
+						<h3>IEEE Electronics Packaging Research</h3>
+						<p class="meta">Thermal Analysis &amp; Lab Validation</p>
+						<p>
+							Completed comprehensive thermal profiling study using infrared thermography and experimental validation. Generated technical reports documenting heat dissipation optimization and component hotspot mitigation strategies.
+						</p>
+					</article>
+					<article class="card">
+						<img class="project-media" src="Team.png" alt="Collaborative engineering team photo" />
+						<h3>Systems Integration Leadership</h3>
+						<p class="meta">Multi-disciplinary Project Coordination</p>
+						<p>
+							Successfully coordinated mechanical, electrical, and software teams across 50+ engineers. Delivered integrated design review documentation and technical documentation totaling 50+ pages for NASA-aligned systems engineering architecture.
+						</p>
+					</article>
+					<article class="card">
+						<img class="project-media" src="nasa.jpg" alt="NASA STRATA Mars Rover mission concept" />
+						<h3>NASA STRATA Mars Rover</h3>
+						<p class="meta">Mission Concept &amp; Feasibility Study</p>
+						<p>
+							Completed full mission feasibility analysis and CAD architecture design for deep space rover. Optimized component placement for subsystem performance while meeting integration constraints.
+						</p>
+					</article>
+					<article class="card">
+						<img class="project-media" src="camaro.jpg" alt="Vehicle design system integration" />
+						<h3>Vehicle Systems Architecture</h3>
+						<p class="meta">Mechanical Design &amp; Integration</p>
+						<p>
+							Designed and validated mechanical subsystems for autonomous vehicle platform. Implemented high-fidelity CAD models with strict tolerances and comprehensive integration testing.
+						</p>
+					</article>
+				</div>
+			</section>
+
 			<section id="code-projects">
 				<div class="section-label">Software Work</div>
 				<h2>Code Projects</h2>
@@ -826,6 +973,49 @@
 				</article>
 			</section>
 
+			<section id="future">
+				<div class="section-label">Upcoming Projects</div>
+				<h2>Future Work</h2>
+				<p style="margin-bottom: 1.5rem;">
+					Exciting projects in development combining advanced CAD modeling, control systems, and embedded design.
+				</p>
+
+				<div class="carousel-container">
+					<div class="carousel-inner" id="carouselInner">
+						<div class="carousel-slide">
+							<img src="Sentry.png" alt="Sentry security robot project" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='Sentry.jpg';return;}this.style.display='none'" />
+							<h3>Autonomous Security Robot (Sentry)</h3>
+							<p>AI-powered mobile security platform with integrated environmental sensing, autonomous navigation, and real-time threat detection capabilities.</p>
+						</div>
+						<div class="carousel-slide">
+							<img src="Locations.png" alt="Deployment location mapping" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='Locations.jpg';return;}this.style.display='none'" />
+							<h3>Deployment &amp; Coverage Analysis</h3>
+							<p>Strategic location modeling and coverage optimization for multi-agent security systems using geographic data and constraint-based planning.</p>
+						</div>
+						<div class="carousel-slide">
+							<img src="iPhone14.png" alt="Mobile app interface prototype" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='iPhone14.jpg';return;}this.style.display='none'" />
+							<h3>Mobile Control &amp; Monitoring</h3>
+							<p>Native iOS/Android application for real-time robot monitoring, remote command dispatch, and fleet management dashboards.</p>
+						</div>
+						<div class="carousel-slide">
+							<img src="Mustang.mp4" alt="Sentry integration demo" style="display:none;" />
+							<h3>Wind Tunnel CAD Development</h3>
+							<p>Advanced aerodynamic testing platform in SolidWorks for vehicle efficiency optimization. Integration with computational fluid dynamics and performance analysis tools.</p>
+						</div>
+					</div>
+
+					<button class="carousel-btn carousel-prev" onclick="carouselMove(-1)">❮</button>
+					<button class="carousel-btn carousel-next" onclick="carouselMove(1)">❯</button>
+
+					<div class="carousel-controls">
+						<span class="carousel-dot active" onclick="carouselGoTo(0)"></span>
+						<span class="carousel-dot" onclick="carouselGoTo(1)"></span>
+						<span class="carousel-dot" onclick="carouselGoTo(2)"></span>
+						<span class="carousel-dot" onclick="carouselGoTo(3)"></span>
+					</div>
+				</div>
+			</section>
+
 			<section id="contact">
 				<div class="section-label">Let's Connect</div>
 				<h2>Contact</h2>
@@ -840,5 +1030,79 @@
 		<footer>
 			<div class="container">© 2026 Christopher Gonzales • Mechanical Engineering Portfolio</div>
 		</footer>
+
+		<script>
+			let currentSlide = 0;
+			let autoplayInterval;
+
+			function showSlide(index) {
+				const carousel = document.getElementById('carouselInner');
+				const slides = carousel.querySelectorAll('.carousel-slide');
+				const dots = document.querySelectorAll('.carousel-dot');
+
+				if (index >= slides.length) {
+					currentSlide = 0;
+				} else if (index < 0) {
+					currentSlide = slides.length - 1;
+				} else {
+					currentSlide = index;
+				}
+
+				carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+				dots.forEach((dot, idx) => {
+					dot.classList.toggle('active', idx === currentSlide);
+				});
+			}
+
+			function carouselMove(direction) {
+				showSlide(currentSlide + direction);
+				resetAutoplay();
+			}
+
+			function carouselGoTo(index) {
+				showSlide(index);
+				resetAutoplay();
+			}
+
+			function autoplay() {
+				showSlide(currentSlide + 1);
+			}
+
+			function startAutoplay() {
+				autoplayInterval = setInterval(autoplay, 5000);
+			}
+
+			function resetAutoplay() {
+				clearInterval(autoplayInterval);
+				startAutoplay();
+			}
+
+			// Touch/Swipe support
+			let touchStartX = 0;
+			let touchEndX = 0;
+
+			function handleSwipe() {
+				if (touchEndX < touchStartX - 50) {
+					carouselMove(1);
+				} else if (touchEndX > touchStartX + 50) {
+					carouselMove(-1);
+				}
+			}
+
+			const carousel = document.querySelector('.carousel-container');
+			if (carousel) {
+				carousel.addEventListener('touchstart', (e) => {
+					touchStartX = e.changedTouches[0].screenX;
+				});
+				carousel.addEventListener('touchend', (e) => {
+					touchEndX = e.changedTouches[0].screenX;
+					handleSwipe();
+				});
+			}
+
+			// Start autoplay when page loads
+			document.addEventListener('DOMContentLoaded', startAutoplay);
+		</script>
 	</body>
 </html>
